@@ -21,7 +21,7 @@ class AuthController extends BaseController
         $credentials = $request->only('email', 'password', 'password_confirmation');
 
         // 数据验证
-        $validator = app('validator')->make($credentials, User::$rules);
+        $validator = app('validator')->make($credentials, User::$registerRules);
 
         // 不符合数据验证规则
         if($validator->fails()) {

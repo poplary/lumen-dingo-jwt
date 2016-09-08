@@ -68,10 +68,9 @@ $app->singleton(
 |
 */
 
-// 启用中间件
-$app->middleware([
-
-]);
+// $app->middleware([
+//    App\Http\Middleware\ExampleMiddleware::class
+// ]);
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,

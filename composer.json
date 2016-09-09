@@ -11,7 +11,8 @@
         "dingo/api": "1.0.x@dev",
         "predis/predis": "^1.0",
         "illuminate/redis": "^5.2",
-        "tymon/jwt-auth": "^1.0@dev"
+        "tymon/jwt-auth": "^1.0@dev",
+        "barryvdh/laravel-cors": "^0.8.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -36,6 +36,9 @@ $app->configure('jwt');
 // 加载auth配置文件
 $app->configure('auth');
 
+// 加载cors配置文件
+$app->configure('cors');
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -68,9 +71,11 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->middleware([
+    // App\Http\Middleware\ExampleMiddleware::class
+    Barryvdh\Cors\HandleCors::class,
+    Barryvdh\Cors\HandlePreflightSimple::class
+]);
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
@@ -100,6 +105,9 @@ $app->register(Dingo\Api\Provider\LumenServiceProvider::class);
 
 // 注册jwt
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
+
+// 注册cors
+$app->register(Barryvdh\Cors\LumenServiceProvider::class);
 
 // dingo自定义相应格式
 Dingo\Api\Http\Response::addFormatter('json', new Dingo\Api\Http\Response\Format\Jsonp);
